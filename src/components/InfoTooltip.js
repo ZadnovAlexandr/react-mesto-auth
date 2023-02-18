@@ -1,19 +1,6 @@
 import React from "react";
-import UnionOk from "../images/UnionOk.svg";
-import UnionErr from "../images/UnionErr.svg";
 
-export const Tooltip = (props) => {
-
-  const text =
-    props.status === "error"
-      ? "Что-то пошло не так! Попробуйте ещё раз."
-      : "Вы успешно зарегистрировались!";
-
-  const image = 
-    props.status === "error" 
-      ? UnionErr 
-      : UnionOk;
-
+const InfoTooltip = (props) => {
   return (
     <div
       className={`popup popup_type_infoTooltip ${
@@ -29,11 +16,13 @@ export const Tooltip = (props) => {
         />
         <img
           className="popup__image_type_infoTooltip"
-          src={image}
+          src={props.image}
           alt={props.status}
         />
-        <p className="popup__title_type_infoTooltip">{text}</p>
+        <p className="popup__title_type_infoTooltip">{props.text}</p>
       </div>
     </div>
   );
 };
+
+export default InfoTooltip;
